@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MilkShopProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="accountID" />
+    </Key>
+    <Property Name="accountID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="displayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="userName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="passWord" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="type" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="billID" />
+    </Key>
+    <Property Name="billID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cusID" Type="Int32" />
+    <Property Name="billDate" Type="DateTime" Precision="0" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Bill__cusID__30F848ED" FromRole="Bill" ToRole="Customer" />
+    <Property Name="milkID" Type="Int32" Nullable="false" />
+    <Property Name="totalPrice" Type="Double" />
+    <Property Name="totalAmount" Type="Int32" />
+    <NavigationProperty Name="Milk" Relationship="MilkShopProjectModel.FK__Bill__milkID__5DCAEF64" FromRole="Bill" ToRole="Milk" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="cusID" />
+    </Key>
+    <Property Name="cusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="phoneNum" Type="Int32" />
+    <Property Name="totalBoughtMoney" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__cusID__30F848ED" FromRole="Customer" ToRole="Bill" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="salary" Type="Double" Nullable="false" />
+    <Property Name="workhour" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Milk">
+    <Key>
+      <PropertyRef Name="milkID" />
+    </Key>
+    <Property Name="milkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MilkName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="price" Type="Double" Nullable="false" />
+    <Property Name="extantAmount" Type="Int32" Nullable="false" />
+    <Property Name="soldAmount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Bills" Relationship="MilkShopProjectModel.FK__Bill__milkID__5DCAEF64" FromRole="Milk" ToRole="Bill" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__Bill__cusID__30F848ED">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="cusID" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="cusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MilkShopProjectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="Bills" EntityType="Self.Bill" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Milk" EntityType="Self.Milk" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK__Bill__cusID__30F848ED" Association="Self.FK__Bill__cusID__30F848ED">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Bill" EntitySet="Bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bill__milkID__5DCAEF64" Association="MilkShopProjectModel.FK__Bill__milkID__5DCAEF64">
+      <End Role="Milk" EntitySet="Milk" />
+      <End Role="Bill" EntitySet="Bills" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK__Bill__milkID__5DCAEF64">
+    <End Type="MilkShopProjectModel.Milk" Role="Milk" Multiplicity="1" />
+    <End Type="MilkShopProjectModel.Bill" Role="Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Milk">
+        <PropertyRef Name="milkID" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="milkID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

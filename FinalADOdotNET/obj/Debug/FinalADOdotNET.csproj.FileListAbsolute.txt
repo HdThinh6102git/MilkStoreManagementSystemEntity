@@ -1,0 +1,12 @@
+C:\Users\Admin\Desktop\Môn học\winform\FinalADOdotNET\FinalADOdotNET\FinalADOdotNET\bin\Debug\FinalADOdotNET.exe.config
+C:\Users\Admin\Desktop\Môn học\winform\FinalADOdotNET\FinalADOdotNET\FinalADOdotNET\bin\Debug\FinalADOdotNET.exe
+C:\Users\Admin\Desktop\Môn học\winform\FinalADOdotNET\FinalADOdotNET\FinalADOdotNET\bin\Debug\FinalADOdotNET.pdb
+C:\Users\Admin\Desktop\Môn học\winform\FinalADOdotNET\FinalADOdotNET\FinalADOdotNET\obj\Debug\FinalADOdotNET.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Môn học\winform\FinalADOdotNET\FinalADOdotNET\FinalADOdotNET\obj\Debug\FinalADOdotNET.Properties.Resources.resources
+C:\Users\Admin\Desktop\Môn học\winform\FinalADOdotNET\FinalADOdotNET\FinalADOdotNET\obj\Debug\FinalADOdotNET.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Môn học\winform\FinalADOdotNET\FinalADOdotNET\FinalADOdotNET\obj\Debug\FinalADOdotNET.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Môn học\winform\FinalADOdotNET\FinalADOdotNET\FinalADOdotNET\obj\Debug\FinalADOdotNET.exe
+C:\Users\Admin\Desktop\Môn học\winform\FinalADOdotNET\FinalADOdotNET\FinalADOdotNET\obj\Debug\FinalADOdotNET.pdb
+C:\Users\Admin\Desktop\Môn học\winform\FinalADOdotNET\FinalADOdotNET\FinalADOdotNET\obj\Debug\FinalADOdotNET.fAdmin.resources
+C:\Users\Admin\Desktop\Môn học\winform\FinalADOdotNET\FinalADOdotNET\FinalADOdotNET\obj\Debug\FinalADOdotNET.fLogin.resources
+C:\Users\Admin\Desktop\Môn học\winform\FinalADOdotNET\FinalADOdotNET\FinalADOdotNET\obj\Debug\FinalADOdotNET.fMain.resources
